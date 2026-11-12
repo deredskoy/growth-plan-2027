@@ -14,7 +14,10 @@
     if (!target) return;
     var details = target.closest('details');
     if (details) {
-      details.open = true;
+      while (details) {
+        details.open = true;
+        details = details.parentElement && details.parentElement.closest('details');
+      }
       requestAnimationFrame(function () { target.scrollIntoView({ block: 'start' }); });
     }
   }
