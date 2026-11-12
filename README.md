@@ -3,3 +3,5 @@
 Static landing page: Russian at `/`, English at `/en/`. There is no build step. Edit `index.html`, `en/index.html` and `assets/`, push to `main`, and GitHub Pages republishes.
 
 The pages are marked `noindex`. Font: Onest (SIL OFL 1.1), licence in `assets/fonts/OFL-Onest.txt`.
+
+The compact brief uses native HTML details for ideas and evidence; it works without JavaScript. Keep the RU/EN content aligned. Product statements have source links and a verification date; local implementation is not presented as proof of production deployment or SEO impact.

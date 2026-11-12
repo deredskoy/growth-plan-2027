@@ -1,35 +1,24 @@
 (function () {
   'use strict';
 
-  var grid = document.querySelector('[data-hours-grid]');
-  var groups = document.querySelectorAll('[data-hours-key]');
-  if (!grid || !groups.length) return;
-
-  var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var frag = document.createDocumentFragment();
-  var n = 0;
-
-  groups.forEach(function (g) {
-    var key = g.getAttribute('data-hours-key');
-    var hours = parseInt(g.getAttribute('data-hours'), 10) || 0;
-    for (var i = 0; i < hours; i++, n++) {
-      var cell = document.createElement('i');
-      cell.className = 'cell cell-' + key;
-      if (!calm) cell.style.animationDelay = n * 9 + 'ms';
-      frag.appendChild(cell);
+  // Native details keep the brief usable without JavaScript.
+  // Direct links reveal the target idea, including on back/forward navigation.
+  function revealHash() {
+    var id;
+    try {
+      id = decodeURIComponent(window.location.hash.slice(1));
+    } catch (_) {
+      return;
     }
-  });
-  grid.appendChild(frag);
-
-  function activate(key) {
-    grid.setAttribute('data-active', key);
+    var target = document.getElementById(id);
+    if (!target) return;
+    var details = target.closest('details');
+    if (details) {
+      details.open = true;
+      requestAnimationFrame(function () { target.scrollIntoView({ block: 'start' }); });
+    }
   }
 
-  groups.forEach(function (g) {
-    var key = g.getAttribute('data-hours-key');
-    g.addEventListener('mouseenter', function () { activate(key); });
-    g.addEventListener('mouseleave', function () { activate(''); });
-    g.addEventListener('focusin', function () { activate(key); });
-    g.addEventListener('focusout', function () { activate(''); });
-  });
+  window.addEventListener('hashchange', revealHash);
+  revealHash();
 })();
