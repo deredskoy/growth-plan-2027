@@ -45,7 +45,6 @@ h1 { font-size: 22px; line-height: 1.35; font-weight: 620; letter-spacing: -.025
 .lang a { display: grid; place-items: center; min-width: 44px; min-height: 44px; text-decoration: none; font-size: 12px; color: var(--muted); }
 .lang a[aria-current] { color: var(--foreground); text-decoration: underline; text-underline-offset: 5px; }
 .lang a:hover { background: var(--hover); }
-.intro { max-width: 72ch; margin-top: 8px; color: var(--muted); font-size: 14px; }
 .workspace { padding-block: 26px 32px; }
 .idea { border-bottom: 1px solid var(--border); scroll-margin-top: 16px; }
 .idea:first-child { border-top: 1px solid var(--border); }
@@ -70,7 +69,6 @@ summary:hover { background: var(--hover); }
   .notes-header { padding-top: 18px; }
   .bar { gap: 10px; }
   h1 { font-size: 19px; }
-  .intro { margin-top: 6px; font-size: 13px; }
   .workspace { padding-top: 22px; }
   .idea > summary { gap: 12px; padding-block: 14px; }
   .idea-title { font-size: 14px; }

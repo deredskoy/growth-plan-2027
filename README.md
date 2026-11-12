@@ -6,4 +6,4 @@ The pages are marked `noindex`. Font: Onest (SIL OFL 1.1), licence in `assets/fo
 
 The neutral, grayscale notes use native HTML details for ideas; they work without JavaScript. Keep the UA/EN content aligned.
 
-Eight ideas contain sourced rationale and assessment criteria. Hour estimates and the separate context block are omitted.
+Five ideas explain the work in plain language, with examples and links to sources. Hour estimates and the separate context block are omitted.
