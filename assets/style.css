@@ -63,6 +63,8 @@ summary:hover { background: var(--hover); }
 .idea-body dl { display: grid; gap: 14px; }
 .idea-body dt { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
 .idea-body dd p + p { margin-top: 10px; }
+.workflow { margin: 0; padding-left: 22px; }
+.workflow li + li { margin-top: 7px; }
 .idea-body dd { max-width: 76ch; font-size: 14px; line-height: 1.65; }
 @media (max-width: 560px) {
   .wrap { width: calc(100% - 36px); }

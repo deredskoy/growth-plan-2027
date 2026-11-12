@@ -6,4 +6,4 @@ The pages are marked `noindex`. Font: Onest (SIL OFL 1.1), licence in `assets/fo
 
 The neutral, grayscale notes use native HTML details for ideas; they work without JavaScript. Keep the UA/EN content aligned.
 
-Five ideas explain the work in plain language, with examples and links to sources. Hour estimates and the separate context block are omitted.
+Five substantial AI/software projects describe recurring workflows, existing components, new capabilities, delivery stages and measures of value. Hour estimates and the separate context block are omitted.
