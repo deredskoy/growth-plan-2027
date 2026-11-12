@@ -46,7 +46,7 @@ h1 { font-size: 22px; line-height: 1.35; font-weight: 620; letter-spacing: -.025
 .lang a[aria-current] { color: var(--foreground); text-decoration: underline; text-underline-offset: 5px; }
 .lang a:hover { background: var(--hover); }
 .intro { max-width: 72ch; margin-top: 8px; color: var(--muted); font-size: 14px; }
-.workspace { padding-top: 26px; }
+.workspace { padding-block: 26px 32px; }
 .idea { border-bottom: 1px solid var(--border); scroll-margin-top: 16px; }
 .idea:first-child { border-top: 1px solid var(--border); }
 summary { list-style: none; cursor: pointer; -webkit-tap-highlight-color: transparent; }
@@ -65,8 +65,6 @@ summary:hover { background: var(--hover); }
 .idea-body dt { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
 .idea-body dd p + p { margin-top: 10px; }
 .idea-body dd { max-width: 76ch; font-size: 14px; line-height: 1.65; }
-.foot { padding-block: 22px 32px; font-size: 11px; line-height: 1.65; color: var(--muted); }
-.foot p { max-width: 100ch; }
 @media (max-width: 560px) {
   .wrap { width: calc(100% - 36px); }
   .notes-header { padding-top: 18px; }
