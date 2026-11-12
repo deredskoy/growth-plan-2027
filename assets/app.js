@@ -232,12 +232,12 @@
       [yMin, yMin + (yMax - yMin) / 2, yMax].forEach(function (value) {
         chart.appendChild(svgElement('line', {
           'class': 'chart-grid', x1: margin.left, x2: width - margin.right,
-          y1: y(value), y2: y(value), stroke: '#dededa', 'stroke-width': 1
+          y1: y(value), y2: y(value)
         }));
         chart.appendChild(svgElement('text', {
           'class': 'chart-axis', x: margin.left - 8, y: y(value),
           'text-anchor': 'end', 'dominant-baseline': 'middle',
-          fill: '#666666', 'font-size': 11, 'font-family': 'inherit'
+          'font-family': 'inherit'
         }, axisFormat.format(value)));
       });
 
@@ -248,13 +248,12 @@
         if (index !== lastIndex && lastIndex - index < stride) return;
         var label = historical ? shortMonth.format(observations[index].date) : String(index);
         chart.appendChild(svgElement('line', {
-          'class': 'chart-tick', x1: x(index), x2: x(index),
-          y1: height - margin.bottom, y2: height - margin.bottom + 4,
-          stroke: '#cccccc', 'stroke-width': 1
+          'class': 'chart-axis', x1: x(index), x2: x(index),
+          y1: height - margin.bottom, y2: height - margin.bottom + 4
         }));
         chart.appendChild(svgElement('text', {
           'class': 'chart-axis', x: x(index), y: height - 12,
-          'text-anchor': 'middle', fill: '#666666', 'font-size': 11,
+          'text-anchor': 'middle',
           'font-family': 'inherit'
         }, label));
       });
@@ -262,8 +261,7 @@
       if (!historical) {
         chart.appendChild(svgElement('line', {
           'class': 'chart-baseline', x1: x(0), x2: x(lastIndex),
-          y1: y(baseline), y2: y(baseline), stroke: '#999995',
-          'stroke-width': 1, 'stroke-dasharray': '4 3'
+          y1: y(baseline), y2: y(baseline)
         }));
       }
       var path = points.map(function (point, index) {
@@ -271,23 +269,18 @@
       }).join(' ');
       chart.appendChild(svgElement('path', {
         'class': historical ? 'chart-history' : 'chart-scenario',
-        d: path, fill: 'none', stroke: historical ? '#303030' : '#2f6b4b',
-        'stroke-width': 1.6, 'stroke-linejoin': 'round', 'stroke-linecap': 'round',
-        'stroke-dasharray': historical ? 'none' : '4 3'
+        d: path, 'stroke-linejoin': 'round', 'stroke-linecap': 'round'
       }));
       chart.appendChild(svgElement('line', {
         'class': 'chart-cursor', x1: x(selected), x2: x(selected),
-        y1: margin.top, y2: height - margin.bottom,
-        stroke: '#aaaaaa', 'stroke-width': 1
+        y1: margin.top, y2: height - margin.bottom
       }));
       chart.appendChild(svgElement('circle', {
-        'class': 'chart-dot', cx: x(0), cy: y(points[0].value), r: 3,
-        fill: '#303030'
+        'class': 'chart-dot chart-origin', cx: x(0), cy: y(points[0].value), r: 3
       }));
       chart.appendChild(svgElement('circle', {
-        'class': 'chart-dot', cx: x(selected), cy: y(points[selected].value), r: 4,
-        fill: !historical && selected === 0 ? '#303030' : '#2f6b4b',
-        stroke: '#ffffff', 'stroke-width': 1.5
+        'class': 'chart-dot chart-selected' + (historical ? ' is-history' : selected === 0 ? ' is-start' : ''),
+        cx: x(selected), cy: y(points[selected].value), r: 4
       }));
       updateReadout();
     }
